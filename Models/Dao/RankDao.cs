@@ -27,7 +27,7 @@ namespace DotnetCoreServer.Models
                     @"
                     SELECT 
                     user_id, facebook_id, facebook_name, 
-                    facebook_photo_url, point, created_at
+                    facebook_photo_url, created_at
                     FROM tb_user
                     ORDER BY point desc
                     LIMIT {0}, {1}", Start, Count );
@@ -47,8 +47,7 @@ namespace DotnetCoreServer.Models
                             user.FacebookID = reader.GetString(1);
                             user.FacebookName = reader.GetString(2);
                             user.FacebookPhotoURL = reader.GetString(3);
-                            user.Point = reader.GetInt32(4);
-                            user.CreatedAt = reader.GetDateTime(5);
+                            user.CreatedAt = reader.GetDateTime(4);
                             user.Rank = rank;
                             list.Add(user);
                         }
@@ -78,7 +77,7 @@ namespace DotnetCoreServer.Models
                     @"
                     SELECT 
                         user_id, facebook_id, facebook_name, 
-                        facebook_photo_url, point, created_at
+                        facebook_photo_url, created_at
                     FROM tb_user
                     WHERE facebook_id IN ( {0} )",
                      StrFacebookIDList);
@@ -99,8 +98,7 @@ namespace DotnetCoreServer.Models
                             user.FacebookID = reader.GetString(1);
                             user.FacebookName = reader.GetString(2);
                             user.FacebookPhotoURL = reader.GetString(3);
-                            user.Point = reader.GetInt32(4);
-                            user.CreatedAt = reader.GetDateTime(5);
+                            user.CreatedAt = reader.GetDateTime(4);
                             user.Rank = rank;
                             list.Add(user);
                         }
